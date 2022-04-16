@@ -90,12 +90,15 @@ namespace app1
                 {
                         case "1":
                         imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/images/1.jpg"));
+                        //imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/1.jpg"));
                         break;
                         case "2":
                         imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/images/2.png"));
+                        //imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/2.png"));
                         break;
                         case "3":
                         imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/images/3.png"));
+                        //imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/3.png"));
                         break;
                         case "error":
                         Button.Content = "Connect";

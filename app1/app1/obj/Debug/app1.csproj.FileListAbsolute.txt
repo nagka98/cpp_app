@@ -1,0 +1,16 @@
+C:\Users\Mani\source\repos\app1\app1\bin\Debug\app1.exe.config
+C:\Users\Mani\source\repos\app1\app1\bin\Debug\app1.exe
+C:\Users\Mani\source\repos\app1\app1\bin\Debug\app1.pdb
+C:\Users\Mani\source\repos\app1\app1\obj\Debug\app1.csproj.AssemblyReference.cache
+C:\Users\Mani\source\repos\app1\app1\obj\Debug\app1.csproj.SuggestedBindingRedirects.cache
+C:\Users\Mani\source\repos\app1\app1\obj\Debug\MainWindow.g.cs
+C:\Users\Mani\source\repos\app1\app1\obj\Debug\App.g.cs
+C:\Users\Mani\source\repos\app1\app1\obj\Debug\app1_MarkupCompile.cache
+C:\Users\Mani\source\repos\app1\app1\obj\Debug\app1_MarkupCompile.lref
+C:\Users\Mani\source\repos\app1\app1\obj\Debug\MainWindow.baml
+C:\Users\Mani\source\repos\app1\app1\obj\Debug\app1.g.resources
+C:\Users\Mani\source\repos\app1\app1\obj\Debug\app1.Properties.Resources.resources
+C:\Users\Mani\source\repos\app1\app1\obj\Debug\app1.csproj.GenerateResource.cache
+C:\Users\Mani\source\repos\app1\app1\obj\Debug\app1.csproj.CoreCompileInputs.cache
+C:\Users\Mani\source\repos\app1\app1\obj\Debug\app1.exe
+C:\Users\Mani\source\repos\app1\app1\obj\Debug\app1.pdb
