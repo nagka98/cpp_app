@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-C:\Users\Mani\source\repos\app1\app1\obj\Debug\
+C:\Users\Mani\source\repos\app1\app1\obj\Release\
 app1
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\Mani\source\repos\app1\app1\App.xaml
 1219584333
 

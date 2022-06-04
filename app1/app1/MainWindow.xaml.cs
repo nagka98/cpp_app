@@ -58,7 +58,8 @@ namespace app1
             if (!process_created)
             {
                 System.Diagnostics.ProcessStartInfo startInfo = p.StartInfo;
-                startInfo.FileName = "C:/Users/Mani/Desktop/thesis/cc++/build/app_console.exe";
+                //startInfo.FileName = "C:/Users/Mani/Desktop/thesis/cc++/build/app_console.exe";
+                startInfo.FileName = "C:/Users/Mani/Desktop/thesis/realtime_SF_imu/main.exe";
                 //startInfo.FileName = "./app_console.exe";
                 this.Dispatcher.Invoke((Action)(() =>
                 {//this refer to form in WPF application
@@ -88,19 +89,73 @@ namespace app1
             {//this refer to form in WPF application
                 switch (e.Data)
                 {
-                        case "1":
-                        imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/images/1.jpg"));
+                        case "startup":
+                        imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-flex.jpg"));
+                        calibration_label.Content = "please Flex your Fingers";
+                        break;
+                        case "calib_min":
+                        imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-palm.png"));
+                        calibration_label.Content = "Please keep your hand in above position";
+                        break;
+                        case "calib_max":
+                        imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-fist.jpg"));
+                        calibration_label.Content = "Please keep your hand in above position";
+                        break;
+                        case "0100":
+                        prediction_label.Content = "1";
+                        imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-1.png"));
                         //imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/1.jpg"));
+                        calibration_label.Content = "Completed";
                         break;
-                        case "2":
-                        imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/images/2.png"));
+                        case "0110":
+                        prediction_label.Content = "2";
+                        imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-2.png"));
                         //imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/2.png"));
+                        calibration_label.Content = "Completed";
                         break;
-                        case "3":
-                        imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/images/3.png"));
+                        case "0111":
+                        prediction_label.Content = "3";
+                        imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-3.png"));
                         //imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/3.png"));
+                        calibration_label.Content = "Completed";
                         break;
-                        case "error":
+                        case "1111":
+                        prediction_label.Content = "5";
+                        imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-5.png"));
+                        //imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/3.png"));
+                        calibration_label.Content = "Completed";
+                        break;
+                        case "0101":
+                        prediction_label.Content = "8";
+                        imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-8.png"));
+                        //imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/3.png"));
+                        calibration_label.Content = "Completed";
+                        break;
+                        case "0011":
+                        prediction_label.Content = "9";
+                        imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-9.png"));
+                        //imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/3.png"));
+                        calibration_label.Content = "Completed";
+                        break;
+                        case "0000":
+                        prediction_label.Content = "10";
+                        imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-10.png"));
+                        //imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/3.png"));
+                        calibration_label.Content = "Completed";
+                        break;
+                    case "updown":
+                        dynamic_label.Content = "updown";
+                        imagebox_dynamic.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/updown.png"));
+                        //imagebox_dynamic.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/3.png"));
+                        calibration_label.Content = "Completed";
+                        break;
+                    case "wave":
+                        dynamic_label.Content = "wave";
+                        imagebox_dynamic.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/wave.jpg"));
+                        //imagebox_dynamic.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/3.png"));
+                        calibration_label.Content = "Completed";
+                        break;
+                    case "error":
                         Button.Content = "Connect";
                         p.CancelOutputRead();
                         p.CancelErrorRead();

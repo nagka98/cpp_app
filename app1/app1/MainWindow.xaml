@@ -6,22 +6,87 @@
         xmlns:local="clr-namespace:app1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Closing="window_main_Closing">
-    <Grid x:Name="window">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="roundedstyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="20" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="window" MaxWidth="800" MaxHeight="400">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="imagebox" Grid.Column="1" RenderTransformOrigin="0.501,0.502" Stretch="Fill" Width="148" Height="150" Margin="0,83,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="Prediction" HorizontalAlignment="Center" Margin="0,54,0,0" VerticalAlignment="Top" FontSize="14" FontFamily="Corbel"/>
+        <Image x:Name="imagebox" Grid.Column="1" RenderTransformOrigin="0.501,0.502" Stretch="Fill" Height="180" Margin="130,80,503,0" VerticalAlignment="Top" Width="160"/>
+        <Label Grid.Column="1" Content="Static Prediction ::" HorizontalAlignment="Left" Margin="114,28,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Corbel" Width="137"/>
         <Border Grid.Column="1" HorizontalAlignment="Center" Height="36" Margin="0,337,0,0" VerticalAlignment="Top" Width="306">
             <Grid>
-                <Button x:Name="Button" Content="Connect" HorizontalAlignment="Left" Margin="182,0,0,0" VerticalAlignment="Center" Height="36" Width="124" Cursor="AppStarting" Click="Button_Click" RenderTransformOrigin="1.329,0.649" FontSize="16" FontStyle="Normal" FontWeight="Normal" FontFamily="Bahnschrift SemiBold"/>
-                <Label Content="COM port:" HorizontalAlignment="Left" Height="36" VerticalAlignment="Center" Width="84" FontSize="16" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-                <TextBox x:Name="com_box" HorizontalAlignment="Left" Height="36" Margin="89,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="64" FontSize="20" TextAlignment="Justify" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                <Button Style="{DynamicResource roundedstyle}" x:Name="Button" Content="Connect" HorizontalAlignment="Left" Margin="182,0,0,0" VerticalAlignment="Center" Height="36" Width="124" Cursor="AppStarting" Click="Button_Click" RenderTransformOrigin="1.329,0.649" FontSize="16" FontStyle="Normal" FontWeight="Normal" FontFamily="Bahnschrift SemiBold" Background="#FF1F0D12" Foreground="White"/>
+                <Label Content="COM port::" HorizontalAlignment="Right" Height="36" VerticalAlignment="Center" Width="90" FontSize="16" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,216,0"/>
+                <TextBox x:Name="com_box" HorizontalAlignment="Left" Height="36" Margin="99,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="64" FontSize="20" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
             </Grid>
         </Border>
+        <Label x:Name="prediction_label" Content="No Data" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="31" Margin="247,27,0,0" VerticalAlignment="Top" Width="73" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
+        <Label x:Name="calibration_label" Content="Not yet calibrated" Height="35" Margin="379,286,115,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Column="1"/>
+        <Image x:Name="imagebox_dynamic" Grid.Column="1" RenderTransformOrigin="0.501,0.502" Stretch="Fill" Height="180" Margin="498,80,128,0" VerticalAlignment="Top" Width="160"/>
+        <Label Grid.Column="1" Content="Dynamic prediction ::" HorizontalAlignment="Left" Margin="475,28,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Corbel"/>
+        <Label x:Name="dynamic_label" Content="No Data" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="31" Margin="626,27,0,0" VerticalAlignment="Top" Width="89" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="180" Margin="131,80,0,0" VerticalAlignment="Top" Width="160"/>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="180" Margin="505,80,0,0" VerticalAlignment="Top" Width="160"/>
+        <Label Content="Calibration Status:" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="35" Margin="247,286,0,0" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="2,5,4,5"/>
 
     </Grid>
 </Window>
