@@ -22,6 +22,7 @@ namespace app1
     {
         static System.Diagnostics.Process p = new System.Diagnostics.Process();
         bool process_created = false;
+        bool calib_timer = false;
         string com_port = "";
 
         public MainWindow()
@@ -43,6 +44,12 @@ namespace app1
             else
             {
                 Button.Content = "Connect";
+                calibration_label.Content = "Not Available";
+                dynamic_label.Content = "No Data";
+                imagebox.Source = null;
+                imagebox_dynamic.Source = null;
+                timer.Content = "Not Available";
+                prediction_label.Content = "N Data";
                 p.CancelOutputRead();
                 p.CancelErrorRead();
                 p.OutputDataReceived -= p_OutputDataReceived;
@@ -93,6 +100,7 @@ namespace app1
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-flex.jpg"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-flex.jpg"));
                         calibration_label.Content = "please Flex your Fingers";
+                        calib_timer = true;
                         break;
                         case "calib_min":
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-palm.png"));
@@ -158,19 +166,17 @@ namespace app1
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-10.png"));
                         calibration_label.Content = "Completed";
                         break;
-                    case "updown":
+                        case "updown":
                         dynamic_label.Content = "updown";
                         //imagebox_dynamic.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/updown.png"));
                         imagebox_dynamic.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/updown.png"));
-                        calibration_label.Content = "Completed";
                         break;
-                    case "wave":
+                        case "wave":
                         dynamic_label.Content = "wave";
                         //imagebox_dynamic.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/wave.jpg"));
                         imagebox_dynamic.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/wave.jpg"));
-                        calibration_label.Content = "Completed";
                         break;
-                    case "error":
+                        case "error":
                         Button.Content = "Connect";
                         p.CancelOutputRead();
                         p.CancelErrorRead();
@@ -182,7 +188,17 @@ namespace app1
                         process_created = false;
                         MessageBox.Show("Something went worng. Please check");
                         break;
+                        case "calib_done":
+                        calibration_label.Content = "completed";
+                        timer.Content = "COMPLETED";
+                        imagebox.Source = null;
+                        calib_timer = false;
+                        break;
                         default:
+                        if(calib_timer)
+                        {
+                            timer.Content = e.Data.ToString();
+                        }
                         System.Diagnostics.Debug.WriteLine("unknown characters recieved");
                         break;
                 }

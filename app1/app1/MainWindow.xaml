@@ -88,6 +88,7 @@
         <Border BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="180" Margin="131,80,0,0" VerticalAlignment="Top" Width="160"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="180" Margin="295,80,0,0" VerticalAlignment="Top" Width="160" Grid.Column="2"/>
         <Label Content="Calibration Status:" HorizontalAlignment="Left" Height="35" Margin="37,286,0,0" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="2,5,4,5" Grid.Column="2"/>
+        <Label x:Name="timer" Content="not available" HorizontalAlignment="Left" Height="35" Margin="124,135,0,0" VerticalAlignment="Top" Width="132" FontWeight="Normal" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="2,5,4,5" Grid.Column="2" FontStyle="Italic"/>
 
     </Grid>
 </Window>
