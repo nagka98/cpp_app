@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-C:\Users\Mani\source\repos\app1\app1\obj\Release\
+C:\Users\Mani\source\repos\app1\app1\obj\Debug\
 app1
 none
 false
-TRACE
+DEBUG;TRACE
 C:\Users\Mani\source\repos\app1\app1\App.xaml
 1219584333
 
-6-1159578175
+51579654133
 13-1310406943
 MainWindow.xaml;
 

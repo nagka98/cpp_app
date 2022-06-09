@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:app1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Closing="window_main_Closing">
+        Title="MST_Z_PREDICT" Height="450" Width="800" Closing="window_main_Closing">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -66,12 +66,13 @@
     <Grid x:Name="window" MaxWidth="800" MaxHeight="400">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="21*"/>
+            <ColumnDefinition Width="59*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="imagebox" Grid.Column="1" RenderTransformOrigin="0.501,0.502" Stretch="Fill" Height="180" Margin="130,80,503,0" VerticalAlignment="Top" Width="160"/>
-        <Label Grid.Column="1" Content="Static Prediction ::" HorizontalAlignment="Left" Margin="114,28,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Corbel" Width="137"/>
-        <Border Grid.Column="1" HorizontalAlignment="Center" Height="36" Margin="0,337,0,0" VerticalAlignment="Top" Width="306">
+        <Image x:Name="imagebox" Grid.Column="1" RenderTransformOrigin="0.501,0.502" Stretch="Fill" Height="180" Margin="134,80,506,0" VerticalAlignment="Top" Width="160" Grid.ColumnSpan="2"/>
+        <Label Grid.Column="1" Content="Static Prediction ::" HorizontalAlignment="Left" Margin="114,28,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Corbel" Width="137" Grid.ColumnSpan="2"/>
+        <Border Grid.Column="2" HorizontalAlignment="Left" Height="36" Margin="37,337,0,0" VerticalAlignment="Top" Width="306">
             <Grid>
                 <Button Style="{DynamicResource roundedstyle}" x:Name="Button" Content="Connect" HorizontalAlignment="Left" Margin="182,0,0,0" VerticalAlignment="Center" Height="36" Width="124" Cursor="AppStarting" Click="Button_Click" RenderTransformOrigin="1.329,0.649" FontSize="16" FontStyle="Normal" FontWeight="Normal" FontFamily="Bahnschrift SemiBold" Background="#FF1F0D12" Foreground="White"/>
                 <Label Content="COM port::" HorizontalAlignment="Right" Height="36" VerticalAlignment="Center" Width="90" FontSize="16" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,216,0"/>
@@ -79,14 +80,14 @@
 
             </Grid>
         </Border>
-        <Label x:Name="prediction_label" Content="No Data" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="31" Margin="247,27,0,0" VerticalAlignment="Top" Width="73" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
-        <Label x:Name="calibration_label" Content="Not yet calibrated" Height="35" Margin="379,286,115,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Column="1"/>
-        <Image x:Name="imagebox_dynamic" Grid.Column="1" RenderTransformOrigin="0.501,0.502" Stretch="Fill" Height="180" Margin="498,80,128,0" VerticalAlignment="Top" Width="160"/>
-        <Label Grid.Column="1" Content="Dynamic prediction ::" HorizontalAlignment="Left" Margin="475,28,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Corbel"/>
-        <Label x:Name="dynamic_label" Content="No Data" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="31" Margin="626,27,0,0" VerticalAlignment="Top" Width="89" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
-        <Border BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="180" Margin="131,80,0,0" VerticalAlignment="Top" Width="160"/>
-        <Border BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="180" Margin="505,80,0,0" VerticalAlignment="Top" Width="160"/>
-        <Label Content="Calibration Status:" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="35" Margin="247,286,0,0" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="2,5,4,5"/>
+        <Label x:Name="prediction_label" Content="No Data" HorizontalAlignment="Left" Height="31" Margin="37,27,0,0" VerticalAlignment="Top" Width="73" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" FontSize="14" Grid.Column="2"/>
+        <Label x:Name="calibration_label" Content="Not yet calibrated" Height="35" Margin="169,286,115,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Column="2"/>
+        <Image x:Name="imagebox_dynamic" Grid.Column="2" RenderTransformOrigin="0.501,0.502" Stretch="Fill" Height="180" Margin="295,80,135,0" VerticalAlignment="Top" Width="160"/>
+        <Label Grid.Column="2" Content="Dynamic prediction ::" HorizontalAlignment="Left" Margin="265,28,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Corbel"/>
+        <Label x:Name="dynamic_label" Content="No Data" HorizontalAlignment="Left" Height="31" Margin="416,27,0,0" VerticalAlignment="Top" Width="89" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" FontSize="14" Grid.Column="2"/>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="180" Margin="131,80,0,0" VerticalAlignment="Top" Width="160"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="180" Margin="295,80,0,0" VerticalAlignment="Top" Width="160" Grid.Column="2"/>
+        <Label Content="Calibration Status:" HorizontalAlignment="Left" Height="35" Margin="37,286,0,0" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="2,5,4,5" Grid.Column="2"/>
 
     </Grid>
 </Window>
