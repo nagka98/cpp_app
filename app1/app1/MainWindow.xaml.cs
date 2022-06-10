@@ -112,25 +112,25 @@ namespace app1
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-fist.jpg"));
                         calibration_label.Content = "Please keep your hand in above position";
                         break;
-                        case "01000":
+                        case "1000":
                         prediction_label.Content = "1";
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-1.png"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-1.png"));
                         calibration_label.Content = "Completed";
                         break;
-                        case "01100":
+                        case "1100":
                         prediction_label.Content = "2";
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-2.png"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-2.png"));
                         calibration_label.Content = "Completed";
                         break;
-                        case "01110":
+                        case "1110":
                         prediction_label.Content = "3";
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-3.png"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-3.png"));
                         calibration_label.Content = "Completed";
                         break;
-                        case "01111":
+                        case "1111":
                         prediction_label.Content = "4";
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-3.png"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-4.png"));
@@ -142,25 +142,25 @@ namespace app1
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-5.png"));
                         calibration_label.Content = "Completed";
                         break;
-                        case "01101":
+                        case "1101":
                         prediction_label.Content = "7";
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-5.png"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-7.png"));
                         calibration_label.Content = "Completed";
                         break;
-                        case "01011":
+                        case "1011":
                         prediction_label.Content = "8";
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-8.png"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-8.png"));
                         calibration_label.Content = "Completed";
                         break;
-                        case "00111":
+                        case "0111":
                         prediction_label.Content = "9";
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-9.png"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-9.png"));
                         calibration_label.Content = "Completed";
                         break;
-                        case "00000":
+                        case "0000":
                         prediction_label.Content = "10";
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-10.png"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-10.png"));
