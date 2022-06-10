@@ -88,9 +88,9 @@
         <Border BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="180" Margin="131,80,0,0" VerticalAlignment="Top" Width="160"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="180" Margin="295,80,0,0" VerticalAlignment="Top" Width="160" Grid.Column="2"/>
         <Label Content="Calibration Status:" HorizontalAlignment="Left" Height="35" Margin="37,286,0,0" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="2,5,4,5" Grid.Column="2"/>
-        <Label x:Name="timer" Content="not available" HorizontalAlignment="Left" Height="35" Margin="124,135,0,0" VerticalAlignment="Top" Width="132" FontWeight="Normal" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="2,5,4,5" Grid.Column="2" FontStyle="Italic"/>
-        <RadioButton x:Name="impedance_switch" Grid.Column="2" Content="Impedance" HorizontalAlignment="Left" Margin="421,347,0,0" VerticalAlignment="Top" Checked="impedance_switch_Checked" Height="20" Width="100" FontSize="16"/>
-        <RadioButton x:Name="resistance_switch" Grid.Column="2" Content="Resistance" HorizontalAlignment="Left" Margin="421,321,0,0" VerticalAlignment="Top" Checked="resistance_switch_Checked" IsChecked="True" Height="21" Width="95" FontSize="16"/>
+        <Label x:Name="timer" Content="not available" HorizontalAlignment="Left" Height="35" Margin="124,135,0,0" VerticalAlignment="Top" Width="132" FontWeight="Normal" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="2,5,4,5" Grid.Column="2" FontStyle="Italic" FontFamily="Candara Light"/>
+        <RadioButton x:Name="impedance_switch" Grid.Column="2" Content="Impedance(z)" HorizontalAlignment="Left" Margin="375,353,0,0" VerticalAlignment="Top" Checked="impedance_switch_Checked" Height="20" Width="117" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <RadioButton x:Name="resistance_switch" Grid.Column="2" Content="Resistance (r)" HorizontalAlignment="Left" Margin="375,327,0,0" VerticalAlignment="Top" Checked="resistance_switch_Checked" IsChecked="True" Height="21" Width="117" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
     </Grid>
 </Window>
