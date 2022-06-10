@@ -23,8 +23,10 @@ namespace app1
         static System.Diagnostics.Process p = new System.Diagnostics.Process();
         bool process_created = false;
         bool calib_timer = false;
+        int resistance_flag = 1;
+        int impedance_flag = 0;
         string com_port = "";
-
+        string argument = "";
         public MainWindow()
         {
             InitializeComponent();
@@ -72,7 +74,9 @@ namespace app1
                 {//this refer to form in WPF application
                     com_port = com_box.Text;
                 }));
-                    startInfo.Arguments = com_port;
+                argument = com_port + " " + resistance_flag + " " + impedance_flag;
+                //startInfo.Arguments = com_port;
+                startInfo.Arguments = argument;
                 System.Diagnostics.ProcessStartInfo info = p.StartInfo;
                 info.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 info.CreateNoWindow = true;
@@ -223,6 +227,20 @@ namespace app1
             catch { }
             System.Diagnostics.Debug.WriteLine("closing all the process");
 
+        }
+
+        private void resistance_switch_Checked(object sender, RoutedEventArgs e)
+        {
+            impedance_switch.IsChecked = false;
+            resistance_flag = 1;
+            impedance_flag = 0;
+        }
+
+        private void impedance_switch_Checked(object sender, RoutedEventArgs e)
+        {
+            resistance_switch.IsChecked = false;
+            impedance_flag = 1;
+            resistance_flag = 0;
         }
     }
 }
