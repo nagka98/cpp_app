@@ -46,12 +46,15 @@ namespace app1
             else
             {
                 Button.Content = "Connect";
-                calibration_label.Content = "Not Available";
-                dynamic_label.Content = "No Data";
+                calibrationstatus_label.Content = "Not calibrated";
+                calibrationstatus_label.Foreground = Brushes.Red;
+                connectionstatus_label.Content = "not connected";
+                connectionstatus_label.Foreground = Brushes.Red;
+                dynamic_label.Content = "None";
                 imagebox.Source = null;
                 imagebox_dynamic.Source = null;
                 timer.Content = "Not Available";
-                prediction_label.Content = "N Data";
+                prediction_label.Content = "None";
                 p.CancelOutputRead();
                 p.CancelErrorRead();
                 p.OutputDataReceived -= p_OutputDataReceived;
@@ -103,72 +106,66 @@ namespace app1
                         case "startup":
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-flex.jpg"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-flex.jpg"));
-                        calibration_label.Content = "please Flex your Fingers";
+                        calibrationstatus_label.Foreground = Brushes.PowderBlue;
+                        calibrationstatus_label.Content = "calibrating";
                         calib_timer = true;
                         break;
                         case "calib_min":
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-palm.png"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-palm.png"));
-                        calibration_label.Content = "Please keep your hand in above position";
+                        calibrationstatus_label.Foreground = Brushes.PowderBlue;
+                        calibrationstatus_label.Content = "calibrating";
                         break;
                         case "calib_max":
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-fist.jpg"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-fist.jpg"));
-                        calibration_label.Content = "Please keep your hand in above position";
+                        calibrationstatus_label.Foreground = Brushes.PowderBlue;
+                        calibrationstatus_label.Content = "calibrating";
                         break;
                         case "1000":
                         prediction_label.Content = "1";
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-1.png"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-1.png"));
-                        calibration_label.Content = "Completed";
                         break;
                         case "1100":
                         prediction_label.Content = "2";
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-2.png"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-2.png"));
-                        calibration_label.Content = "Completed";
                         break;
                         case "1110":
                         prediction_label.Content = "3";
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-3.png"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-3.png"));
-                        calibration_label.Content = "Completed";
                         break;
                         case "1111":
                         prediction_label.Content = "4";
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-3.png"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-4.png"));
-                        calibration_label.Content = "Completed";
                         break;
                         case "11111":
                         prediction_label.Content = "5";
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-5.png"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-5.png"));
-                        calibration_label.Content = "Completed";
                         break;
                         case "1101":
                         prediction_label.Content = "7";
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-5.png"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-7.png"));
-                        calibration_label.Content = "Completed";
                         break;
                         case "1011":
                         prediction_label.Content = "8";
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-8.png"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-8.png"));
-                        calibration_label.Content = "Completed";
                         break;
                         case "0111":
                         prediction_label.Content = "9";
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-9.png"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-9.png"));
-                        calibration_label.Content = "Completed";
                         break;
                         case "0000":
                         prediction_label.Content = "10";
                         //imagebox.Source = new BitmapImage(new Uri("C:/Users/Mani/Desktop/thesis/ASL-Numbers/ASL-10.png"));
                         imagebox.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/images/ASL-10.png"));
-                        calibration_label.Content = "Completed";
                         break;
                         case "updown":
                         dynamic_label.Content = "updown";
@@ -193,12 +190,17 @@ namespace app1
                         MessageBox.Show("Something went worng. Please check");
                         break;
                         case "calib_done":
-                        calibration_label.Content = "completed";
-                        timer.Content = "COMPLETED";
+                        calibrationstatus_label.Content = "completed";
+                        calibrationstatus_label.Foreground = Brushes.Green;
+                        timer.Content = "not available";
                         imagebox.Source = null;
                         calib_timer = false;
                         break;
-                        default:
+                        case "connection_ok":
+                        connectionstatus_label.Content = "active";
+                        connectionstatus_label.Foreground = Brushes.Green;
+                        break;
+                    default:
                         if(calib_timer)
                         {
                             timer.Content = e.Data.ToString();
@@ -241,6 +243,16 @@ namespace app1
             resistance_switch.IsChecked = false;
             impedance_flag = 1;
             resistance_flag = 0;
+        }
+
+        private void mst_logo_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.tu-chemnitz.de/etit/messtech/index.php.en");
+        }
+
+        private void tuc_logo_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.tu-chemnitz.de/index.html.en");
         }
     }
 }

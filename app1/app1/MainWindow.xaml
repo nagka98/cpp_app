@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:app1"
         mc:Ignorable="d"
-        Title="MST_Z_PREDICT" Height="450" Width="800" Closing="window_main_Closing">
+        Title="MST_Z_PREDICT" Height="450" Width="800" Closing="window_main_Closing" ResizeMode="CanResize" Background="#212121" WindowStyle="SingleBorderWindow" Visibility="Visible" >
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -70,27 +70,49 @@
             <ColumnDefinition Width="59*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="imagebox" Grid.Column="1" RenderTransformOrigin="0.501,0.502" Stretch="Fill" Height="180" Margin="131,80,0,0" VerticalAlignment="Top" Width="160" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
-        <Label Grid.Column="1" Content="Static Prediction ::" HorizontalAlignment="Left" Margin="114,28,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Corbel" Width="137" Grid.ColumnSpan="2"/>
-        <Border Grid.Column="2" HorizontalAlignment="Left" Height="36" Margin="37,337,0,0" VerticalAlignment="Top" Width="306">
-            <Grid>
-                <Button Style="{DynamicResource roundedstyle}" x:Name="Button" Content="Connect" HorizontalAlignment="Left" Margin="182,0,0,0" VerticalAlignment="Center" Height="36" Width="124" Cursor="AppStarting" Click="Button_Click" RenderTransformOrigin="1.329,0.649" FontSize="16" FontStyle="Normal" FontWeight="Normal" FontFamily="Bahnschrift SemiBold" Background="#FF1F0D12" Foreground="White"/>
-                <Label Content="COM port::" HorizontalAlignment="Right" Height="36" VerticalAlignment="Center" Width="90" FontSize="16" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,216,0"/>
-                <TextBox x:Name="com_box" HorizontalAlignment="Left" Height="36" Margin="99,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="64" FontSize="20" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-
-            </Grid>
+        <Border CornerRadius="10" Background="#1A1A1B" BorderBrush="White" BorderThickness="0.3" Grid.Column="1" HorizontalAlignment="Left" Height="280" Margin="35,3,0,0" VerticalAlignment="Top" Width="455" Grid.ColumnSpan="2"/>
+        <Border CornerRadius="10" Background="#191A19" BorderBrush="White" BorderThickness="0.3" Grid.Column="1" HorizontalAlignment="Left" Height="70" Margin="36,314,0,0" VerticalAlignment="Top" Width="455" Grid.ColumnSpan="2">
+            <Label Content="CALIBRATION" Foreground="#77ABB7" HorizontalAlignment="Center" Height="35" VerticalAlignment="Top" Width="97" FontWeight="Normal" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="1,1,1,1" FontStyle="Normal" FontFamily="Segoe UI"/>
         </Border>
-        <Label x:Name="prediction_label" Content="No Data" HorizontalAlignment="Left" Height="31" Margin="37,27,0,0" VerticalAlignment="Top" Width="73" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" FontSize="14" Grid.Column="2"/>
-        <Label x:Name="calibration_label" Content="Not yet calibrated" Height="35" Margin="169,286,115,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Column="2"/>
-        <Image x:Name="imagebox_dynamic" Grid.Column="2" RenderTransformOrigin="0.501,0.502" Stretch="Fill" Height="180" Margin="295,80,135,0" VerticalAlignment="Top" Width="160"/>
-        <Label Grid.Column="2" Content="Dynamic prediction ::" HorizontalAlignment="Left" Margin="265,28,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Corbel"/>
-        <Label x:Name="dynamic_label" Content="No Data" HorizontalAlignment="Left" Height="31" Margin="416,27,0,0" VerticalAlignment="Top" Width="89" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" FontSize="14" Grid.Column="2"/>
-        <Border BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="180" Margin="131,80,0,0" VerticalAlignment="Top" Width="160"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="180" Margin="295,80,0,0" VerticalAlignment="Top" Width="160" Grid.Column="2"/>
-        <Label Content="Calibration Status:" HorizontalAlignment="Left" Height="35" Margin="37,286,0,0" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="2,5,4,5" Grid.Column="2"/>
-        <Label x:Name="timer" Content="not available" HorizontalAlignment="Left" Height="35" Margin="124,135,0,0" VerticalAlignment="Top" Width="132" FontWeight="Normal" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="2,5,4,5" Grid.Column="2" FontStyle="Italic" FontFamily="Arial"/>
-        <RadioButton x:Name="impedance_switch" Grid.Column="2" Content="Impedance(z)" HorizontalAlignment="Left" Margin="375,353,0,0" VerticalAlignment="Top" Checked="impedance_switch_Checked" Height="20" Width="117" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <RadioButton x:Name="resistance_switch" Grid.Column="2" Content="Resistance (r)" HorizontalAlignment="Left" Margin="375,327,0,0" VerticalAlignment="Top" Checked="resistance_switch_Checked" IsChecked="True" Height="21" Width="117" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-
+        <Border CornerRadius="10" Background="#191A19" BorderBrush="White" BorderThickness="1.5" Grid.Column="2" HorizontalAlignment="Left" Height="380" Margin="338,5,0,0" VerticalAlignment="Top" Width="200"/>
+        <Border CornerRadius="10" Background="#121212" BorderBrush="White" BorderThickness="1.5" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="338,5,0,0" VerticalAlignment="Top" Width="200">
+            <Image x:Name="tuc_logo" HorizontalAlignment="Left" Height="30" Margin="36,-6,0,0" VerticalAlignment="Center" Width="34" Source="/TU_Chemnitz.png" MouseDown="tuc_logo_MouseDown"/>
+        </Border>
+        <Border CornerRadius="5" Background="white" BorderBrush="Gray" BorderThickness="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="186" Margin="51,56,0,0" VerticalAlignment="Top" Width="166"/>
+        <Border CornerRadius="5" Background="White" BorderBrush="Gray" BorderThickness="1" HorizontalAlignment="Left" Height="185" Margin="82,56,0,0" VerticalAlignment="Top" Width="165" Grid.Column="2"/>
+        <Image x:Name="imagebox" Grid.Column="1" RenderTransformOrigin="0.501,0.502" Stretch="Fill" Height="180" Margin="54,59,0,0" VerticalAlignment="Top" Width="160" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+        <Label Grid.Column="1" Content="Static Prediction ::" Foreground="#FAFAFAFA" Margin="47,15,25,0" VerticalAlignment="Top" FontSize="16" FontFamily="Corbel" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="prediction_label" Foreground="#FAFAFAFA" HorizontalAlignment="Left" Height="30" Margin="181,16,0,0" VerticalAlignment="Top" Width="50" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" FontSize="14" Grid.Column="1" Content="None" Grid.ColumnSpan="2" Padding="1,1,1,1"/>
+        <Label x:Name="calibrationstatus_label" Foreground="Red" Content="Not calibrated" Height="35" Margin="149,339,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Column="2" HorizontalAlignment="Left" Padding="1,2,1,1"/>
+        <Image x:Name="imagebox_dynamic" Grid.Column="2" RenderTransformOrigin="0.501,0.502" Stretch="Fill" Height="186" Margin="86,60,345,0" VerticalAlignment="Top" Width="166"/>
+        <Label Grid.Column="2" Content="Dynamic prediction ::" Foreground="#FAFAFAFA" HorizontalAlignment="Left" Margin="73,16,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Corbel" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label x:Name="dynamic_label" Foreground="#FAFAFAFA" Content="None" Height="30" Margin="224,17,316,0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" FontSize="14" Grid.Column="2" Padding="1,1,1,1" Width="50"/>
+        <Label Content="Status:" Foreground="#FAFAFAFA" HorizontalAlignment="Left" Height="35" Margin="96,338,0,0" VerticalAlignment="Top" Width="54" FontWeight="Bold" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="1,1,1,1" Grid.Column="2"/>
+        <Label x:Name="timer" Content="not available" Foreground="#FAFAFAFA" HorizontalAlignment="Left" Height="35" Margin="119,336,0,0" VerticalAlignment="Top" Width="101" FontWeight="Normal" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Padding="1,1,1,1" Grid.Column="1" FontStyle="Italic" FontFamily="Segoe UI" Grid.ColumnSpan="2"/>
+        <RadioButton x:Name="impedance_switch" Foreground="#FAFAFAFA" Grid.Column="2" Content="Impedance(z)" HorizontalAlignment="Left" Margin="380,142,0,0" VerticalAlignment="Top" Checked="impedance_switch_Checked" Height="20" Width="117" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <RadioButton x:Name="resistance_switch" Foreground="#FAFAFAFA" Grid.Column="2" Content="Resistance (r)" HorizontalAlignment="Left" Margin="380,106,0,0" VerticalAlignment="Top" Checked="resistance_switch_Checked" IsChecked="True" Height="21" Width="117" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="COM port:" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="94" FontSize="16" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="377,197,0,0" Foreground="#FAFAFAFA" Grid.Column="2"/>
+        <TextBox x:Name="com_box" HorizontalAlignment="Left" Height="26" Margin="465,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="42" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="2" BorderThickness="0,0,0,0" Opacity="1" Foreground="#FFF3F2F2" Background="#21212121" FontSize="14"/>
+        <Button Style="{DynamicResource roundedstyle}" x:Name="Button" Content="Connect" HorizontalAlignment="Left" Margin="373,280,0,0" VerticalAlignment="Top" Height="36" Width="124" Cursor="AppStarting" Click="Button_Click" RenderTransformOrigin="1.329,0.649" FontSize="16" FontStyle="Normal" FontWeight="Normal" FontFamily="Bahnschrift SemiBold" Foreground="Black" Grid.Column="2" BorderBrush="#FF020C14">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                            <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF59E559" Offset="1"/>
+                    <GradientStop Color="#FFE4945C"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Border CornerRadius="5"  BorderBrush="white" BorderThickness="1" Grid.Column="2" HorizontalAlignment="Left" Height="26" Margin="465,203,0,0" VerticalAlignment="Top" Width="42"/>
+        <Label Grid.Column="2" Content="Status :" Foreground="#FAFAFAFA" HorizontalAlignment="Left" Margin="355,342,0,0" VerticalAlignment="Top" FontFamily="Segoe UI" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14"/>
+        <Label x:Name="connectionstatus_label" Grid.Column="2" Content="not connected" Foreground="Red" HorizontalAlignment="Left" Margin="407,344,0,0" VerticalAlignment="Top" FontFamily="Segoe UI" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16" Padding="1,2,1,1" Width="105" Height="25"/>
+        <Label Content="Timer:" Foreground="#FAFAFAFA" HorizontalAlignment="Left" Height="35" Margin="67,336,0,0" VerticalAlignment="Top" Width="56" FontWeight="Bold" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="1,1,1,1" Grid.Column="1"/>
+        <Image x:Name="mst_logo" HorizontalAlignment="Left" Height="30" Margin="460,20,0,0" VerticalAlignment="Top" Width="40" Source="/mst logo.png" Grid.Column="2" MouseDown="mst_logo_MouseDown"/>
     </Grid>
 </Window>
